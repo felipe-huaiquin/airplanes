@@ -18,3 +18,10 @@
     background-image: url(enemy.png);
     position: absolute;
 }
+
+.missile{
+    position: absolute;
+    background-color: red;
+    height: 10px;
+    width: 2px;
+}

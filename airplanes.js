@@ -8,6 +8,8 @@ var enemies = [
     {left: 450, top: 250}
 ]
 
+var missiles = []
+
 window.onload= function(){
     function drawPlayer(){
         var content = "<div class='player' style='left: "+player.left+"px; top: "+player.top+"px'></div>";
@@ -25,7 +27,30 @@ window.onload= function(){
     }
     drawEnemies();
 
+    function moveEnemies(){
+        var content = "";
+        for(var i = 0; i < enemies.length; i++){
+            enemies[i].top+=5
+        }
+        document.getElementById("enemies").innerHTML = content;
+    }
+    moveEnemies();
+
+    function drawMissiles(){
+        var output = "";
+        for(var i = 0; i < missiles.length; i++){
+            
+        }
+    }
+    drawMissiles();
+
     document.onkeydown = function(e){
+        // // diagonal movements
+        // while(((e.key == 'a' && e.key == 'w')||(e.key == 'ArrowLeft'&& e.key =='ArrowUp'))){
+        //     player.left+=-10;
+        //     player.top+=10;
+        // }
+        // organic movements
         if( (e.key == 'a' || e.key == 'ArrowLeft') && player.left > 0){
             player.left+=-10;
         }
@@ -39,5 +64,16 @@ window.onload= function(){
             player.top+=10;
         }
         drawPlayer();
+        if((e.key == 'c' || e.key == 'Control')){
+            missiles.push({left: player.left, top: player.top})
+        }
     }
+
+    function gameLoop(){
+        moveEnemies();
+        drawPlayer();
+        drawEnemies();
+        setTimeout(gameLoop,1000);
+    }
+    gameLoop();
 }
