@@ -26,16 +26,16 @@ window.onload= function(){
     drawEnemies();
 
     document.onkeydown = function(e){
-        if( e.key == 'ArrowLeft' && player.left > 0){
+        if( (e.key == 'a' || e.key == 'ArrowLeft') && player.left > 0){
             player.left+=-10;
         }
-        if(e.key == 'ArrowUp' && player.top > 0){
+        if((e.key == 'w' || e.key == 'ArrowUp') && player.top > 0){
             player.top+=-10;
         }
-        if(e.key == 'ArrowRight' && player.left < 691){
+        if((e.key == 'd' || e.key == 'ArrowRight') && player.left < 691){
             player.left+=10;
         }
-        if(e.key == 'ArrowDown' && player.top < 511){
+        if((e.key == 's' || e.key == 'ArrowDown') && player.top < 511){
             player.top+=10;
         }
         drawPlayer();
