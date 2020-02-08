@@ -1,0 +1,20 @@
+.ocean{
+    height: 700px;
+    width: 900px;
+    background-image: url(ocean.jpg);
+    background-size: contain;
+}
+
+.player{
+    height: 75px;
+    width: 70px;
+    background-image: url(player.png);
+    position: absolute;
+}
+
+.enemy{
+    height: 70px;
+    width: 75px;
+    background-image: url(enemy.png);
+    position: absolute;
+}
